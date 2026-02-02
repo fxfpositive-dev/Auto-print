@@ -1,0 +1,21 @@
+app:
+  data_dir: "data"
+  session_dir: "data/sessions"
+  output_dir: "data/output"
+
+scrapers:
+  providers:
+    - "paypay"
+    - "aeon"
+    - "view"
+
+templates:
+  statement_html: "templates/statement.html"
+  stylesheet: "templates/style.css"
+
+printing:
+  enabled: true
+  command: "lp"
+  options:
+    - "-o"
+    - "fit-to-page"
