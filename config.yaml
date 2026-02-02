@@ -8,6 +8,12 @@ scrapers:
     - "paypay"
     - "aeon"
     - "view"
+  paypay:
+    login_url: "https://www.paypay-card.co.jp/"
+    statement_url: "https://www.paypay-card.co.jp/"
+    session_file: "data/sessions/paypay.json"
+    headless: true
+    allow_manual_login: true
 
 templates:
   statement_html: "templates/statement.html"
