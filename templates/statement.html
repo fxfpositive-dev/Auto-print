@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>{{ title or "Card Statement" }}</title>
+    <link rel="stylesheet" href="{{ stylesheet_path or 'style.css' }}">
+  </head>
+  <body>
+    <h1>{{ title or "Card Statement" }}</h1>
+    <p>{{ subtitle or "" }}</p>
+    <table>
+      <thead>
+        <tr>
+          <th>Date</th>
+          <th>Merchant</th>
+          <th>Amount</th>
+          <th>Note</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for entry in entries %}
+        <tr>
+          <td>{{ entry.date }}</td>
+          <td>{{ entry.merchant }}</td>
+          <td>{{ entry.amount }}</td>
+          <td>{{ entry.note or "" }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </body>
+</html>

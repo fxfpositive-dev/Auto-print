@@ -1,0 +1,28 @@
+app:
+  data_dir: "data"
+  session_dir: "data/sessions"
+  output_dir: "data/output"
+
+scrapers:
+  providers:
+    - "paypay"
+    - "aeon"
+    - "view"
+  paypay:
+    login_url: "https://www.paypay-card.co.jp/"
+    statement_url: "https://www.paypay-card.co.jp/"
+    session_file: "data/sessions/paypay.json"
+    headless: true
+    allow_manual_login: true
+    auto_detect_columns: true
+
+templates:
+  statement_html: "templates/statement.html"
+  stylesheet: "templates/style.css"
+
+printing:
+  enabled: true
+  command: "lp"
+  options:
+    - "-o"
+    - "fit-to-page"
