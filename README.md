@@ -50,9 +50,19 @@ printing:
 ```python
 from datetime import date
 
-from scrapers.paypay import PaypayScraper, PaypayScraperConfig
+from scrapers.paypay import PaypayCredentials, PaypayScraper, PaypayScraperConfig
 
 config = PaypayScraperConfig(headless=False)
 scraper = PaypayScraper(config)
-entries = scraper.fetch_statements(start_date=date(2024, 1, 1))
+credentials = PaypayCredentials(login_id="user", password="pass")
+entries = scraper.fetch_statements(credentials=credentials, start_date=date(2024, 1, 1))
 ```
+
+## Paypay UI
+
+```
+python -m src.ui
+```
+
+The UI uses `PaypayScraperConfig` defaults. Adjust selectors as needed if the
+Paypay Card site structure changes.
