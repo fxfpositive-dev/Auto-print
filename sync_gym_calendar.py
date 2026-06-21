@@ -115,12 +115,8 @@ def delete_event(cal, info: dict):
     print(f"[?] No calendar event found for: {info['start'].strftime('%Y-%m-%d %H:%M')}")
 
 
-def mark_read(gmail, msg_id: str):
-    gmail.users().messages().modify(
-        userId="me",
-        id=msg_id,
-        body={"removeLabelIds": ["UNREAD"]},
-    ).execute()
+def trash_message(gmail, msg_id: str):
+    gmail.users().messages().trash(userId="me", id=msg_id).execute()
 
 
 def main():
@@ -157,7 +153,7 @@ def main():
                 delete_event(cal, info)
             else:
                 continue
-            mark_read(gmail, msg["id"])
+            trash_message(gmail, msg["id"])
         except Exception as e:
             print(f"[!] Error on '{subject}': {e}")
             raise
